@@ -1,8 +1,8 @@
 class_name AudioControls
 extends Control
 
-@export var music_slider: HSlider
-@export var sfx_slider: HSlider
+@onready var music_slider: HSlider = %MusicSlider
+@onready var sfx_slider: HSlider = %SfxSlider
 
 
 func _ready() -> void:

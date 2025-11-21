@@ -2,9 +2,8 @@
 
 [ext_resource type="Script" uid="uid://duvuoxtqp8wex" path="res://ui/credits_screen.gd" id="1_ed0b0"]
 
-[node name="CreditsScreen" type="Node2D" node_paths=PackedStringArray("done_button")]
+[node name="CreditsScreen" type="Node2D"]
 script = ExtResource("1_ed0b0")
-done_button = NodePath("DoneButton")
 
 [node name="Control" type="Control" parent="."]
 custom_minimum_size = Vector2(1920, 1080)
@@ -23,6 +22,7 @@ grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
 [node name="DoneButton" type="Button" parent="."]
+unique_name_in_owner = true
 offset_left = 1839.0
 offset_top = 1019.0
 offset_right = 1888.0

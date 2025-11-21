@@ -1,7 +1,7 @@
 class_name CreditsScreen
 extends Node2D
 
-@export var done_button: Button
+@onready var done_button: Button = %DoneButton
 
 signal done_pressed
 

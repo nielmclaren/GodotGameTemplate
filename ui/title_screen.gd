@@ -1,10 +1,10 @@
 class_name TitleScreen
 extends Node2D
 
-@export var play_button: Button
-@export var credits_button: Button
-@export var exit_button: Button
-@export var fullscreen_button: Button
+@onready var play_button: Button = %PlayButton
+@onready var credits_button: Button = %CreditsButton
+@onready var exit_button: Button = %ExitButton
+@onready var fullscreen_button: Button = %FullscreenButton
 
 signal play_pressed
 signal credits_pressed

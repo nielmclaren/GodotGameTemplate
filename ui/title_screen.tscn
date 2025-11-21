@@ -4,12 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://cc4701uyf5r76" path="res://ui/audio_controls.tscn" id="2_bor1v"]
 [ext_resource type="Theme" uid="uid://b8rvlvfehdp6a" path="res://ui/ui_theme.tres" id="2_qer0c"]
 
-[node name="TitleScreen" type="Node2D" node_paths=PackedStringArray("play_button", "credits_button", "exit_button", "fullscreen_button")]
+[node name="TitleScreen" type="Node2D"]
 script = ExtResource("1_7xhpk")
-play_button = NodePath("Control/MarginContainer/VBoxContainer/VBoxContainer/ButtonVBox/PlayButton")
-credits_button = NodePath("Control/MarginContainer/VBoxContainer/VBoxContainer/ButtonVBox/CreditsButton")
-exit_button = NodePath("Control/MarginContainer/VBoxContainer/VBoxContainer/ButtonVBox/ExitButton")
-fullscreen_button = NodePath("Control/MarginContainer/VBoxContainer/VBoxContainer/ButtonVBox2/FullscreenButton")
 
 [node name="Control" type="Control" parent="."]
 custom_minimum_size = Vector2(1920, 1080)
@@ -54,14 +50,17 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 
 [node name="PlayButton" type="Button" parent="Control/MarginContainer/VBoxContainer/VBoxContainer/ButtonVBox"]
+unique_name_in_owner = true
 layout_mode = 2
 text = "Play"
 
 [node name="CreditsButton" type="Button" parent="Control/MarginContainer/VBoxContainer/VBoxContainer/ButtonVBox"]
+unique_name_in_owner = true
 layout_mode = 2
 text = "Credits"
 
 [node name="ExitButton" type="Button" parent="Control/MarginContainer/VBoxContainer/VBoxContainer/ButtonVBox"]
+unique_name_in_owner = true
 layout_mode = 2
 text = "Exit"
 
@@ -76,5 +75,6 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 
 [node name="FullscreenButton" type="Button" parent="Control/MarginContainer/VBoxContainer/VBoxContainer/ButtonVBox2"]
+unique_name_in_owner = true
 layout_mode = 2
 text = "Fullscreen"

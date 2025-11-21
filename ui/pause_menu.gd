@@ -1,11 +1,11 @@
 class_name PauseMenu
 extends Node2D
 
-@export var resume_button: Button
-@export var abandon_button: Button
-@export var credits_button: Button
-@export var exit_button: Button
-@export var fullscreen_button: Button
+@onready var resume_button: Button = %ResumeButton
+@onready var abandon_button: Button = %AbandonButton
+@onready var credits_button: Button = %CreditsButton
+@onready var exit_button: Button = %ExitButton
+@onready var fullscreen_button: Button = %FullscreenButton
 
 signal resume_pressed
 signal abandon_pressed

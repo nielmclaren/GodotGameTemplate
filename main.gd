@@ -1,10 +1,10 @@
 class_name Main
 extends Node2D
 
-@export var title_screen: TitleScreen
-@export var credits_screen: CreditsScreen
-@export var game_container: Node2D
-@export var pause_menu: PauseMenu
+@onready var title_screen: TitleScreen = %TitleScreen
+@onready var credits_screen: CreditsScreen = %CreditsScreen
+@onready var game_container: Node2D = %GameContainer
+@onready var pause_menu: PauseMenu = %PauseMenu
 
 var game_scene: PackedScene
 

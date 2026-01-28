@@ -11,9 +11,16 @@ config_version=5
 [application]
 
 config/name="GodotGameTemplate"
+config/version="0.0.1"
 run/main_scene="uid://cvee3n6hgph3k"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[autoload]
+
+PostHog="*res://addons/posthog/plugin.gd"
+Tracer="*res://addons/tracer/tracer.gd"
+uuid="*res://addons/uuid/uuid.gd"
 
 [debug]
 
@@ -28,6 +35,15 @@ gdscript/warnings/unsafe_call_argument=2
 window/size/viewport_width=1920
 window/size/viewport_height=1080
 window/stretch/mode="canvas_items"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/posthog/plugin.cfg", "res://addons/tracer/plugin.cfg", "res://addons/uuid/plugin.cfg")
+
+[global]
+
+posthog_api_key="phc_dp1KkgXFuixalwnCZGQKp5DRiPcS1uW1Bi06sZS0J41"
+posthog_endpoint="https://eu.i.posthog.com/"
 
 [input]
 

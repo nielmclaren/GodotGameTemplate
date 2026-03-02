@@ -66,17 +66,6 @@ func _abandon() -> void:
 		_game.queue_free()
 		_game = null
 
-	title_screen.hide()
-	credits_screen.hide()
-
-	_game = game_scene.instantiate()
-	game_container.add_child(_game)
-
-
-	if _game:
-		_game.queue_free()
-		_game = null
-
 	title_screen.show()
 	pause_menu.hide()
 	credits_screen.hide()
@@ -123,9 +112,6 @@ func _input(event: InputEvent) -> void:
 		elif _game:
 			_toggle_pause_menu()
 			get_viewport().set_input_as_handled()
-
-		else:
-			_quit()
 
 	elif event.is_action_pressed("pause") and !event.is_echo():
 		if _game:

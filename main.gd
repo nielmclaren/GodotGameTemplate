@@ -1,13 +1,9 @@
 class_name Main
 extends Node2D
 
-@onready var title_screen: TitleScreen = %TitleScreen
-@onready var credits_screen: CreditsScreen = %CreditsScreen
-@onready var game_container: Node2D = %GameContainer
-@onready var pause_menu: PauseMenu = %PauseMenu
+var _sm: CallableStateMachineNoProcess
 
-var game_scene: PackedScene
-
+var _title_screen: TitleScreen
 var _game: Game
 
 # Track pause separately since Game may pause the scene tree.
@@ -15,6 +11,14 @@ var _is_pause_menu: bool = false
 
 # Used to return the scene tree to the paused value set by Game.
 var _prev_paused: bool = false
+
+var _game_scene: PackedScene = preload("res://game.tscn")
+var _title_screen_scene: PackedScene = preload("res://ui/title_screen.tscn")
+
+@onready var screen_container: Node2D = %ScreenContainer
+@onready var credits_screen: CreditsScreen = %CreditsScreen
+@onready var game_container: Node2D = %GameContainer
+@onready var pause_menu: PauseMenu = %PauseMenu
 
 
 func _init() -> void:
@@ -26,73 +30,24 @@ func _ready() -> void:
 	TracerIntegration.init()
 	get_tree().set_auto_accept_quit(false)
 
-	game_scene = load("res://game.tscn")
-
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	game_container.process_mode = Node.PROCESS_MODE_PAUSABLE
 
-	title_screen.play_pressed.connect(_play)
-	title_screen.credits_pressed.connect(_show_credits)
-	title_screen.exit_pressed.connect(_exit)
-	title_screen.fullscreen_pressed.connect(_toggle_fullscreen)
+	_sm = CallableStateMachineNoProcess.new()
+	_sm.add_state(_title_state_enter, _title_state_leave)
+	_sm.add_state(_credits_state_enter, _credits_state_leave)
+	_sm.add_state(_game_state_enter, _game_state_leave)
+	_sm.set_initial_state(_title_state_enter)
 
 	pause_menu.resume_pressed.connect(_toggle_pause_menu)
-	pause_menu.abandon_pressed.connect(_abandon)
-	pause_menu.credits_pressed.connect(_show_credits)
-	pause_menu.exit_pressed.connect(_exit)
+	pause_menu.abandon_pressed.connect(_abandon_pressed)
+	pause_menu.credits_pressed.connect(_show_credits_pressed)
+	pause_menu.exit_pressed.connect(_exit_pressed)
 	pause_menu.fullscreen_pressed.connect(_toggle_fullscreen)
 	pause_menu.hide()
 
-	credits_screen.done_pressed.connect(_hide_credits)
+	credits_screen.done_pressed.connect(_credits_done_pressed)
 	credits_screen.hide()
-
-
-func _play() -> void:
-	Tracer.trace("Play clicked.")
-	if _game:
-		_game.queue_free()
-		_game = null
-
-	title_screen.hide()
-	credits_screen.hide()
-
-	_game = game_scene.instantiate()
-	game_container.add_child(_game)
-
-
-func _abandon() -> void:
-	Tracer.trace("Abandon clicked.")
-	if _game:
-		_game.queue_free()
-		_game = null
-
-	title_screen.show()
-	pause_menu.hide()
-	credits_screen.hide()
-
-	_is_pause_menu = false
-	_prev_paused = false
-	get_tree().paused = false
-
-
-func _show_credits() -> void:
-	Tracer.trace("Show credits clicked.")
-	credits_screen.show()
-
-
-func _hide_credits() -> void:
-	Tracer.trace("Hide credits clicked.")
-	credits_screen.hide()
-
-
-func _exit() -> void:
-	Tracer.trace("Exit clicked.")
-	_quit()
-
-
-func _quit() -> void:
-	Tracer.trace("Quitting.")
-	get_tree().root.propagate_notification(NOTIFICATION_WM_CLOSE_REQUEST)
 
 
 func _notification(what: int) -> void:
@@ -107,7 +62,7 @@ func _input(event: InputEvent) -> void:
 		Tracer.trace("ui_cancel pressed.")
 		if credits_screen.visible:
 			Tracer.trace("Hiding credits.")
-			credits_screen.hide()
+			_hide_credits()
 
 		elif _game:
 			_toggle_pause_menu()
@@ -117,6 +72,48 @@ func _input(event: InputEvent) -> void:
 		if _game:
 			_toggle_pause_menu()
 			get_viewport().set_input_as_handled()
+
+
+func _play_pressed() -> void:
+	Tracer.trace("Play clicked.")
+	_sm.change_state(_game_state_enter)
+
+
+func _abandon_pressed() -> void:
+	Tracer.trace("Abandon clicked.")
+	_sm.change_state(_title_state_enter)
+
+
+func _show_credits_pressed() -> void:
+	Tracer.trace("Show credits clicked.")
+	if _is_pause_menu:
+		# No state change for in-game pause menu.
+		credits_screen.show()
+	else:
+		_sm.change_state(_credits_state_enter)
+
+
+func _credits_done_pressed() -> void:
+	Tracer.trace("Hide credits clicked.")
+	_hide_credits()
+
+
+func _hide_credits() -> void:
+	if _is_pause_menu:
+		# No state change for pause menu.
+		credits_screen.hide()
+	else:
+		_sm.change_state(_title_state_enter)
+
+
+func _exit_pressed() -> void:
+	Tracer.trace("Exit clicked.")
+	_quit()
+
+
+func _quit() -> void:
+	Tracer.trace("Quitting.")
+	get_tree().root.propagate_notification(NOTIFICATION_WM_CLOSE_REQUEST)
 
 
 func _toggle_pause_menu() -> void:
@@ -142,3 +139,42 @@ func _toggle_fullscreen() -> void:
 	else:
 		Tracer.trace("Going window mode.")
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+
+
+### States
+
+
+func _title_state_enter() -> void:
+	_title_screen = _title_screen_scene.instantiate()
+	_title_screen.play_pressed.connect(_play_pressed)
+	_title_screen.credits_pressed.connect(_show_credits_pressed)
+	_title_screen.exit_pressed.connect(_exit_pressed)
+	screen_container.add_child(_title_screen)
+
+
+func _title_state_leave() -> void:
+	_title_screen.queue_free()
+
+
+func _credits_state_enter() -> void:
+	credits_screen.show()
+
+
+func _credits_state_leave() -> void:
+	credits_screen.hide()
+
+
+func _game_state_enter() -> void:
+	_game = _game_scene.instantiate()
+	game_container.add_child(_game)
+
+
+func _game_state_leave() -> void:
+	_game.queue_free()
+	_game = null
+
+	pause_menu.hide()
+
+	_is_pause_menu = false
+	_prev_paused = false
+	get_tree().paused = false

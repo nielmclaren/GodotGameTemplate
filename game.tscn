@@ -1,13 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://cvee3n6hgph3k"]
+[gd_scene format=3 uid="uid://cvee3n6hgph3k"]
 
 [ext_resource type="Script" uid="uid://ba7k16ft3tklp" path="res://game.gd" id="1_80nbo"]
 [ext_resource type="Script" uid="uid://b6xjkpxjv77pk" path="res://ui/dev_bar.gd" id="2_e2o6t"]
 
-[node name="Game" type="Node2D"]
+[node name="Game" type="Node2D" unique_id=495977761]
 script = ExtResource("1_80nbo")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1401471223]
 
-[node name="DevBar" type="Node2D" parent="CanvasLayer"]
+[node name="DevBar" type="Node2D" parent="CanvasLayer" unique_id=1402162778]
 script = ExtResource("2_e2o6t")
 metadata/_custom_type_script = "uid://b6xjkpxjv77pk"

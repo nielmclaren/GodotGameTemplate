@@ -1,18 +1,18 @@
-[gd_scene load_steps=2 format=3 uid="uid://fi441li6sa4l"]
+[gd_scene format=3 uid="uid://fi441li6sa4l"]
 
 [ext_resource type="Script" uid="uid://duvuoxtqp8wex" path="res://ui/credits_screen.gd" id="1_ed0b0"]
 
-[node name="CreditsScreen" type="Node2D"]
+[node name="CreditsScreen" type="Node2D" unique_id=1839152154]
 script = ExtResource("1_ed0b0")
 
-[node name="Control" type="Control" parent="."]
+[node name="Control" type="Control" parent="." unique_id=1830880964]
 custom_minimum_size = Vector2(1920, 1080)
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="ColorRect" type="ColorRect" parent="Control"]
+[node name="ColorRect" type="ColorRect" parent="Control" unique_id=365703350]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -21,7 +21,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
-[node name="DoneButton" type="Button" parent="."]
+[node name="DoneButton" type="Button" parent="." unique_id=1338504610]
 unique_name_in_owner = true
 offset_left = 1839.0
 offset_top = 1019.0

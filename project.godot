@@ -8,18 +8,22 @@
 
 config_version=5
 
+[animation]
+
+compatibility/default_parent_skeleton_in_mesh_instance_3d=true
+
 [application]
 
 config/name="GodotGameTemplate"
 config/version="0.0.1"
 run/main_scene="uid://cvee3n6hgph3k"
-config/features=PackedStringArray("4.5", "GL Compatibility")
+config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [autoload]
 
-PostHog="*res://addons/posthog/plugin.gd"
-Tracer="*res://addons/tracer/tracer.gd"
+PostHog="*uid://cn0olvbuje45n"
+Tracer="*uid://jksenkoj110h"
 uuid="*res://addons/uuid/uuid.gd"
 Constants="*res://globals/constants.gd"
 Utils="*res://globals/utils.gd"

@@ -1,26 +1,26 @@
-[gd_scene load_steps=5 format=3 uid="uid://de8cif78hkx40"]
+[gd_scene format=3 uid="uid://de8cif78hkx40"]
 
 [ext_resource type="Script" uid="uid://dgyt60s4iammr" path="res://main.gd" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://cwcqneccd8g4g" path="res://ui/pause_menu.tscn" id="2_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://fi441li6sa4l" path="res://ui/credits_screen.tscn" id="3_h2yge"]
 [ext_resource type="PackedScene" uid="uid://6v1t5ga1bu11" path="res://managers/audio_manager.tscn" id="5_lquwl"]
 
-[node name="Main" type="Node2D"]
+[node name="Main" type="Node2D" unique_id=676116584]
 script = ExtResource("1_ig7tw")
 
-[node name="GameContainer" type="Node2D" parent="."]
+[node name="GameContainer" type="Node2D" parent="." unique_id=828489906]
 unique_name_in_owner = true
 
-[node name="ScreenContainer" type="Node2D" parent="."]
+[node name="ScreenContainer" type="Node2D" parent="." unique_id=32333673]
 unique_name_in_owner = true
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1628360723]
 layer = 100
 
-[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("2_0xm2m")]
+[node name="PauseMenu" parent="CanvasLayer" unique_id=614445525 instance=ExtResource("2_0xm2m")]
 unique_name_in_owner = true
 
-[node name="AudioManager" parent="CanvasLayer" instance=ExtResource("5_lquwl")]
+[node name="AudioManager" parent="CanvasLayer" unique_id=881405963 instance=ExtResource("5_lquwl")]
 
-[node name="CreditsScreen" parent="CanvasLayer" instance=ExtResource("3_h2yge")]
+[node name="CreditsScreen" parent="CanvasLayer" unique_id=1371592190 instance=ExtResource("3_h2yge")]
 unique_name_in_owner = true

@@ -1,8 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://cc4701uyf5r76"]
+[gd_scene format=3 uid="uid://cc4701uyf5r76"]
 
 [ext_resource type="Script" uid="uid://bu6suc41k7e6q" path="res://ui/audio_controls.gd" id="1_j8hng"]
 
-[node name="AudioControls" type="MarginContainer" node_paths=PackedStringArray("music_slider", "sfx_slider")]
+[node name="AudioControls" type="MarginContainer" unique_id=577549010]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -13,28 +13,26 @@ theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 script = ExtResource("1_j8hng")
-music_slider = NodePath("AudioVBox/MusicHBox/MusicSlider")
-sfx_slider = NodePath("AudioVBox/SfxHBox/SfxSlider")
 
-[node name="AudioVBox" type="VBoxContainer" parent="."]
+[node name="AudioVBox" type="VBoxContainer" parent="." unique_id=1694128587]
 custom_minimum_size = Vector2(400, 100)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="MusicHBox" type="HBoxContainer" parent="AudioVBox"]
+[node name="MusicHBox" type="HBoxContainer" parent="AudioVBox" unique_id=1899818244]
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="MusicLabel" type="Label" parent="AudioVBox/MusicHBox"]
+[node name="MusicLabel" type="Label" parent="AudioVBox/MusicHBox" unique_id=2120521237]
 custom_minimum_size = Vector2(80, 0)
 layout_mode = 2
 text = "Music"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="MusicSlider" type="HSlider" parent="AudioVBox/MusicHBox"]
+[node name="MusicSlider" type="HSlider" parent="AudioVBox/MusicHBox" unique_id=1231890875]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -43,19 +41,19 @@ max_value = 1.0
 step = 0.05
 tick_count = 11
 
-[node name="SfxHBox" type="HBoxContainer" parent="AudioVBox"]
+[node name="SfxHBox" type="HBoxContainer" parent="AudioVBox" unique_id=1055021453]
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="SfxLabel" type="Label" parent="AudioVBox/SfxHBox"]
+[node name="SfxLabel" type="Label" parent="AudioVBox/SfxHBox" unique_id=292745309]
 custom_minimum_size = Vector2(80, 0)
 layout_mode = 2
 text = "SFX"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="SfxSlider" type="HSlider" parent="AudioVBox/SfxHBox"]
+[node name="SfxSlider" type="HSlider" parent="AudioVBox/SfxHBox" unique_id=2058477629]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3

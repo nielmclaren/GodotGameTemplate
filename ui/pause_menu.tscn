@@ -1,21 +1,21 @@
-[gd_scene load_steps=3 format=3 uid="uid://cwcqneccd8g4g"]
+[gd_scene format=3 uid="uid://cwcqneccd8g4g"]
 
 [ext_resource type="Script" uid="uid://dfcldctbit6ae" path="res://ui/pause_menu.gd" id="1_50142"]
 [ext_resource type="PackedScene" uid="uid://cc4701uyf5r76" path="res://ui/audio_controls.tscn" id="2_ejwgg"]
 
-[node name="PauseMenu" type="Node2D"]
+[node name="PauseMenu" type="Node2D" unique_id=1977493155]
 script = ExtResource("1_50142")
 
-[node name="CenterContainer" type="CenterContainer" parent="."]
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=196469572]
 custom_minimum_size = Vector2(1920, 1080)
 offset_right = 425.0
 offset_bottom = 272.0
 
-[node name="Control" type="Control" parent="CenterContainer"]
+[node name="Control" type="Control" parent="CenterContainer" unique_id=1178349441]
 custom_minimum_size = Vector2(500, 400)
 layout_mode = 2
 
-[node name="ColorRect" type="ColorRect" parent="CenterContainer/Control"]
+[node name="ColorRect" type="ColorRect" parent="CenterContainer/Control" unique_id=383088712]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -24,7 +24,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
-[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/Control"]
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/Control" unique_id=803257662]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -36,62 +36,62 @@ theme_override_constants/margin_top = 32
 theme_override_constants/margin_right = 32
 theme_override_constants/margin_bottom = 32
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/Control/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/Control/MarginContainer" unique_id=266438648]
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/Control/MarginContainer/VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/Control/MarginContainer/VBoxContainer" unique_id=2107418270]
 layout_mode = 2
 theme_override_constants/margin_left = 16
 theme_override_constants/margin_top = 16
 theme_override_constants/margin_right = 16
 theme_override_constants/margin_bottom = 16
 
-[node name="Label" type="Label" parent="CenterContainer/Control/MarginContainer/VBoxContainer/MarginContainer"]
+[node name="Label" type="Label" parent="CenterContainer/Control/MarginContainer/VBoxContainer/MarginContainer" unique_id=199073450]
 layout_mode = 2
 size_flags_vertical = 3
 text = "Paused"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/Control/MarginContainer/VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/Control/MarginContainer/VBoxContainer" unique_id=108665261]
 layout_mode = 2
 
-[node name="ButtonVBox" type="VBoxContainer" parent="CenterContainer/Control/MarginContainer/VBoxContainer/VBoxContainer"]
+[node name="ButtonVBox" type="VBoxContainer" parent="CenterContainer/Control/MarginContainer/VBoxContainer/VBoxContainer" unique_id=1670020536]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="ResumeButton" type="Button" parent="CenterContainer/Control/MarginContainer/VBoxContainer/VBoxContainer/ButtonVBox"]
+[node name="ResumeButton" type="Button" parent="CenterContainer/Control/MarginContainer/VBoxContainer/VBoxContainer/ButtonVBox" unique_id=1403221171]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Resume	"
 
-[node name="AbandonButton" type="Button" parent="CenterContainer/Control/MarginContainer/VBoxContainer/VBoxContainer/ButtonVBox"]
+[node name="AbandonButton" type="Button" parent="CenterContainer/Control/MarginContainer/VBoxContainer/VBoxContainer/ButtonVBox" unique_id=21537447]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Abandon"
 
-[node name="CreditsButton" type="Button" parent="CenterContainer/Control/MarginContainer/VBoxContainer/VBoxContainer/ButtonVBox"]
+[node name="CreditsButton" type="Button" parent="CenterContainer/Control/MarginContainer/VBoxContainer/VBoxContainer/ButtonVBox" unique_id=2129067380]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Credits"
 
-[node name="ExitButton" type="Button" parent="CenterContainer/Control/MarginContainer/VBoxContainer/VBoxContainer/ButtonVBox"]
+[node name="ExitButton" type="Button" parent="CenterContainer/Control/MarginContainer/VBoxContainer/VBoxContainer/ButtonVBox" unique_id=1589011938]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Exit"
 
-[node name="AudioControls" parent="CenterContainer/Control/MarginContainer/VBoxContainer/VBoxContainer" instance=ExtResource("2_ejwgg")]
+[node name="AudioControls" parent="CenterContainer/Control/MarginContainer/VBoxContainer/VBoxContainer" unique_id=2144573154 instance=ExtResource("2_ejwgg")]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="ButtonVBox2" type="VBoxContainer" parent="CenterContainer/Control/MarginContainer/VBoxContainer/VBoxContainer"]
+[node name="ButtonVBox2" type="VBoxContainer" parent="CenterContainer/Control/MarginContainer/VBoxContainer/VBoxContainer" unique_id=1625152476]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="FullscreenButton" type="Button" parent="CenterContainer/Control/MarginContainer/VBoxContainer/VBoxContainer/ButtonVBox2"]
+[node name="FullscreenButton" type="Button" parent="CenterContainer/Control/MarginContainer/VBoxContainer/VBoxContainer/ButtonVBox2" unique_id=1715245768]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Fullscreen"

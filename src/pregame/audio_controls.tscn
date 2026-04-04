@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cc4701uyf5r76"]
 
-[ext_resource type="Script" uid="uid://bu6suc41k7e6q" path="res://ui/audio_controls.gd" id="1_j8hng"]
+[ext_resource type="Script" uid="uid://bu6suc41k7e6q" path="res://src/pregame/audio_controls.gd" id="1_j8hng"]
 
 [node name="AudioControls" type="MarginContainer" unique_id=577549010]
 anchors_preset = 15

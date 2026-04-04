@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cwcqneccd8g4g"]
 
-[ext_resource type="Script" uid="uid://dfcldctbit6ae" path="res://ui/pause_menu.gd" id="1_50142"]
-[ext_resource type="PackedScene" uid="uid://cc4701uyf5r76" path="res://ui/audio_controls.tscn" id="2_ejwgg"]
+[ext_resource type="Script" uid="uid://dfcldctbit6ae" path="res://src/pregame/pause_menu.gd" id="1_50142"]
+[ext_resource type="PackedScene" uid="uid://cc4701uyf5r76" path="res://src/pregame/audio_controls.tscn" id="2_ejwgg"]
 
 [node name="PauseMenu" type="Node2D" unique_id=1977493155]
 script = ExtResource("1_50142")

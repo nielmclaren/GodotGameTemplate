@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://de8cif78hkx40"]
 
-[ext_resource type="Script" uid="uid://dgyt60s4iammr" path="res://main.gd" id="1_ig7tw"]
-[ext_resource type="PackedScene" uid="uid://cwcqneccd8g4g" path="res://ui/pause_menu.tscn" id="2_0xm2m"]
-[ext_resource type="PackedScene" uid="uid://fi441li6sa4l" path="res://ui/credits_screen.tscn" id="3_h2yge"]
-[ext_resource type="PackedScene" uid="uid://6v1t5ga1bu11" path="res://managers/audio_manager.tscn" id="5_lquwl"]
+[ext_resource type="Script" uid="uid://dgyt60s4iammr" path="res://src/main.gd" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://cwcqneccd8g4g" path="res://src/pregame/pause_menu.tscn" id="2_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://fi441li6sa4l" path="res://src/pregame/credits_screen.tscn" id="3_h2yge"]
+[ext_resource type="PackedScene" uid="uid://6v1t5ga1bu11" path="res://src/managers/audio_manager.tscn" id="5_lquwl"]
 
 [node name="Main" type="Node2D" unique_id=676116584]
 script = ExtResource("1_ig7tw")

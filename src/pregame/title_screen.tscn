@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://1jfy80jul1w0"]
 
-[ext_resource type="Script" uid="uid://7srngd7gbyqc" path="res://ui/title_screen.gd" id="1_7xhpk"]
-[ext_resource type="PackedScene" uid="uid://cc4701uyf5r76" path="res://ui/audio_controls.tscn" id="2_bor1v"]
-[ext_resource type="Theme" uid="uid://b8rvlvfehdp6a" path="res://ui/ui_theme.tres" id="2_qer0c"]
+[ext_resource type="Script" uid="uid://7srngd7gbyqc" path="res://src/pregame/title_screen.gd" id="1_7xhpk"]
+[ext_resource type="PackedScene" uid="uid://cc4701uyf5r76" path="res://src/pregame/audio_controls.tscn" id="2_bor1v"]
+[ext_resource type="Theme" uid="uid://b8rvlvfehdp6a" path="res://src/pregame/ui_theme.tres" id="2_qer0c"]
 
 [node name="TitleScreen" type="Node2D" unique_id=1759019722]
 script = ExtResource("1_7xhpk")

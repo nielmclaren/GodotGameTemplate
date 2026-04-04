@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://fi441li6sa4l"]
 
-[ext_resource type="Script" uid="uid://duvuoxtqp8wex" path="res://ui/credits_screen.gd" id="1_ed0b0"]
+[ext_resource type="Script" uid="uid://duvuoxtqp8wex" path="res://src/pregame/credits_screen.gd" id="1_ed0b0"]
 
 [node name="CreditsScreen" type="Node2D" unique_id=1839152154]
 script = ExtResource("1_ed0b0")

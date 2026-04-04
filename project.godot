@@ -25,8 +25,6 @@ config/icon="res://icon.svg"
 PostHog="*uid://cn0olvbuje45n"
 Tracer="*uid://jksenkoj110h"
 uuid="*res://addons/uuid/uuid.gd"
-Constants="*res://globals/constants.gd"
-Utils="*res://globals/utils.gd"
 
 [debug]
 

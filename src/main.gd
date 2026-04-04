@@ -12,8 +12,8 @@ var _is_pause_menu: bool = false
 # Used to return the scene tree to the paused value set by Game.
 var _prev_paused: bool = false
 
-var _game_scene: PackedScene = preload("res://game.tscn")
-var _title_screen_scene: PackedScene = preload("res://ui/title_screen.tscn")
+var _game_scene: PackedScene = preload("res://src/game.tscn")
+var _title_screen_scene: PackedScene = preload("res://src/pregame/title_screen.tscn")
 
 @onready var screen_container: Node2D = %ScreenContainer
 @onready var credits_screen: CreditsScreen = %CreditsScreen
@@ -29,6 +29,7 @@ func _init() -> void:
 func _ready() -> void:
 	TracerIntegration.init()
 	get_tree().set_auto_accept_quit(false)
+	Tracer.trace("Main ready.")
 
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	game_container.process_mode = Node.PROCESS_MODE_PAUSABLE

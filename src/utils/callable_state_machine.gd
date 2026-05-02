@@ -11,9 +11,9 @@ var current_state: String
 
 
 func add_state(
-	normal_state_callable: Callable, enter_state_callable: Callable, leave_state_callable: Callable
+	enter_state_callable: Callable, normal_state_callable: Callable, leave_state_callable: Callable
 ) -> void:
-	state_dictionary[normal_state_callable.get_method()] = {
+	state_dictionary[enter_state_callable.get_method()] = {
 		"normal": normal_state_callable,
 		"enter": enter_state_callable,
 		"leave": leave_state_callable

@@ -1,7 +1,7 @@
 class_name Main
 extends Node2D
 
-var _sm: CallableStateMachineNoProcess
+var _sm: CallableStateMachine
 
 var _title_screen: TitleScreen
 var _game: Game
@@ -34,10 +34,10 @@ func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	game_container.process_mode = Node.PROCESS_MODE_PAUSABLE
 
-	_sm = CallableStateMachineNoProcess.new()
-	_sm.add_state(_title_state_enter, _title_state_leave)
-	_sm.add_state(_credits_state_enter, _credits_state_leave)
-	_sm.add_state(_game_state_enter, _game_state_leave)
+	_sm = CallableStateMachine.new()
+	_sm.add_state(_title_state_enter, Callable(), _title_state_leave)
+	_sm.add_state(_credits_state_enter, Callable(), _credits_state_leave)
+	_sm.add_state(_game_state_enter, Callable(), _game_state_leave)
 	_sm.set_initial_state(_title_state_enter)
 
 	pause_menu.resume_pressed.connect(_toggle_pause_menu)

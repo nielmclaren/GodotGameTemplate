@@ -20,3 +20,10 @@ func _ready() -> void:
 	credits_button.pressed.connect(credits_pressed.emit)
 	exit_button.pressed.connect(exit_pressed.emit)
 	fullscreen_button.pressed.connect(fullscreen_pressed.emit)
+
+	visibility_changed.connect(_visibility_changed)
+
+
+func _visibility_changed() -> void:
+	if visible:
+		resume_button.grab_focus.call_deferred()

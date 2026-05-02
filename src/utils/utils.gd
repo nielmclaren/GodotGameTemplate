@@ -23,7 +23,9 @@ static func get_ancestor_by_type(node: Node, type: Variant) -> Node:
 	return frontier
 
 
-static func lerpf(v: float, in_low: float, in_high: float, out_low: float, out_high: float) -> float:
+static func lerpf(
+	v: float, in_low: float, in_high: float, out_low: float, out_high: float
+) -> float:
 	return out_low + (v - in_low) * (out_high - out_low) / (in_high - in_low)
 
 

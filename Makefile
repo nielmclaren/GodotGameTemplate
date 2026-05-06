@@ -1,10 +1,8 @@
-export:
+release:
 	rm -rf bin/web
 	mkdir -p bin/web
 	touch bin/.gdignore
 	godot --headless --export-debug "Web" bin/web/index.html
-
-publish:
 	butler push bin/web nielmclaren/game-template:web
 
 status:

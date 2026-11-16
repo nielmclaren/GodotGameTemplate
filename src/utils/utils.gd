@@ -24,7 +24,7 @@ static func get_ancestor_by_type(node: Node, type: Variant) -> Node:
 
 
 static func lerpf(
-	v: float, in_low: float, in_high: float, out_low: float, out_high: float
+	v: float, in_low: float, in_high: float, out_low: float = 0., out_high: float = 1.
 ) -> float:
 	return out_low + (v - in_low) * (out_high - out_low) / (in_high - in_low)
 
@@ -32,3 +32,9 @@ static func lerpf(
 static func string_to_vector2(value: String) -> Vector2:
 	var parts: PackedStringArray = value.substr(1, value.length() - 2).split(", ")
 	return Vector2(float(parts[0]), float(parts[1]))
+
+
+static func remove_all_children(node: Node) -> void:
+	var children: Array[Node] = node.get_children()
+	for child: Node in children:
+		node.remove_child(child)
